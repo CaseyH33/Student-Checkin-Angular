@@ -5,17 +5,18 @@
     <div class="panel panel-default">
       <form class="form-inline" role="form">
         <div class="form-group">
-          <input ng-model="query.studentName" type="text" class="form-control" placeholder="Search">
+          <input ng-model="query.name" type="text" placeholder="Search for your name">
         </div>
       </form>
     </div>
-
-    <h2 ng-show="students.length && !filter.length">No Matches</h2>
+    <h2 ng-show="students.length && filtered.length">Student List</h2>
+    <h2 ng-show="students.length && !filtered.length">No Matches</h2>
     <ul>
-      <li ng-repeat="item in filtered = (students | filter:query)">
-        <h4>{{ item.studentName }}</h4>
-        <button ng-show="item.checkinStatus" class="btn btn-submit" ng-click="toggleCheckin(true)">Check In</button>
-        <button ng-hide="item.checkinStatus" class="btn btn-danger" ng-click="toggleCheckin(false)">I'm Leaving</button>
+      <li ng-repeat="item in filtered = (students | orderBy:'name' | filter:query)">
+        <h4>{{ item.name }}
+        <button class="btn btn-success" ng-click="checkin()" ng-if="item.checkinStatus">Check In</button>
+        <button class="btn btn-danger" ng-click="checkout()" ng-if="!item.checkinStatus">I'm Leaving</button>
+        </h4>
       </li>
     </ul>
 

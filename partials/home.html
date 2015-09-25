@@ -1,9 +1,21 @@
 <div class="well">
   <h1>Welcome to Epicodus</h1>
   <a ui-sref="student-view">
-    <button class="btn btn-submit">Check In</button>
+    <button class="btn btn-success">Check In</button>
   </a>
   <a ui-sref="teacher-view">
     <button class="btn btn-info">Who's Here</button>
   </a>
 </div>
+
+<div class="well">
+  <h3>Add a new student:</h3>
+  <form ng-submit="StudentsFactory.addStudent()" class="form-inline" role="form">
+    <div class="form-group">
+      <input type="text" ng-model="StudentsFactory.studentName" class="form-control" placeholder="Name...">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div ui-view> </div>

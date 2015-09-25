@@ -1,0 +1,21 @@
+<div ng-show="students.length">
+  <div class="well">
+    <h1>Here</h1>
+    <ul>
+      <li ng-repeat="item in students | orderBy:'name' | filter:{checkinStatus:true}">
+        <h4>{{ item.name }}
+        </h4>
+      </li>
+    </ul>
+  </div>
+
+  <div class="well">
+    <h1>Not Here</h1>
+    <ul>
+      <li ng-repeat="item in filtered = students | orderBy:'name' | filter:{checkinStatus:false}">
+        <h4>{{ item.name }}
+        </h4>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -2,13 +2,11 @@
   <div class="well">
     <h1>Please Sign In</h1>
 
-    <div class="panel panel-default">
       <form class="form-inline" role="form">
         <div class="form-group">
           <input ng-model="query.name" type="text" placeholder="Search for your name">
         </div>
       </form>
-    </div>
     <h2 ng-show="students.length && filtered.length">Student List</h2>
     <h2 ng-show="students.length && !filtered.length">No Matches</h2>
     <ul>

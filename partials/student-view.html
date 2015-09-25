@@ -1,0 +1,23 @@
+<div ng-show="students.length">
+  <div class="well">
+    <h1>Please Sign In</h1>
+
+    <div class="panel panel-default">
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <input ng-model="query.studentName" type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
+    </div>
+
+    <h2 ng-show="students.length && !filter.length">No Matches</h2>
+    <ul>
+      <li ng-repeat="item in filtered = (students | filter:query)">
+        <h4>{{ item.studentName }}</h4>
+        <button ng-show="item.checkinStatus" class="btn btn-submit" ng-click="toggleCheckin(true)">Check In</button>
+        <button ng-hide="item.checkinStatus" class="btn btn-danger" ng-click="toggleCheckin(false)">I'm Leaving</button>
+      </li>
+    </ul>
+
+  </div>
+</div>

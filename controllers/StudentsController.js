@@ -2,11 +2,7 @@ studentCheckin.controller('StudentsCtrl', function StudentsCtrl($scope, Students
   $scope.students = StudentsFactory.students;
   $scope.StudentsFactory = StudentsFactory;
 
-  $scope.checkin = function() {
-    $scope.checkinStatus = true;
-  };
-
-  $scope.checkout = function() {
-    $scope.checkinStatus = false;
+  $scope.toggleCheckin = function(status) {
+    $scope.checkinStatus = status;
   };
 });

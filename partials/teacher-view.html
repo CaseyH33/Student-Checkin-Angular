@@ -1,5 +1,6 @@
 <div ng-show="students.length">
   <div class="well">
+<!-- Will list only students who's checkinStatus is true -->
     <h1>Here</h1>
     <ul>
       <li ng-repeat="item in students | orderBy:'name' | filter:{checkinStatus:true}">
@@ -9,6 +10,7 @@
     </ul>
   </div>
 
+<!-- Will list only students who's checkinStatus is false -->
   <div class="well">
     <h1>Not Here</h1>
     <ul>

@@ -2,16 +2,20 @@
   <div class="well">
     <h1>Please Sign In</h1>
 
+<!-- A filter to search for student(s) -->
       <form class="form-inline" role="form">
         <div class="form-group">
           <input ng-model="query.name" type="text" placeholder="Search for your name">
         </div>
       </form>
+<!-- Will list the filtered students, or display No Matches if the query doesn't have any matches       -->
     <h2 ng-show="students.length && filtered.length">Student List</h2>
     <h2 ng-show="students.length && !filtered.length">No Matches</h2>
     <ul>
+<!-- Lists alphabetized students that match the query -->
       <li ng-repeat="item in filtered = (students | orderBy:'name' | filter:query)">
         <h4>{{ item.name }}
+<!-- These two buttons will toggle the checkInStatus of a student, and only the appropriate button will display -->
         <button ng-hide="item.checkinStatus" class="btn btn-success" ng-click="toggleCheckin(item)">Check In</button>
         <button ng-hide="!item.checkinStatus" class="btn btn-danger" ng-click="toggleCheckin(item)">I'm Leaving</button>
         </h4>

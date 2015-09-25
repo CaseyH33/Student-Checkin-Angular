@@ -14,8 +14,8 @@
     <ul>
       <li ng-repeat="item in filtered = (students | orderBy:'name' | filter:query)">
         <h4>{{ item.name }}
-        <button class="btn btn-success" ng-click="toggleCheckin()" ng-show="!item.checkinStatus">Check In</button>
-        <!-- <button class="btn btn-danger" ng-click="toggleCheckin()">I'm Leaving</button> -->
+        <button ng-hide="item.checkinStatus" class="btn btn-success" ng-click="toggleCheckin(item)">Check In</button>
+        <button ng-hide="!item.checkinStatus" class="btn btn-danger" ng-click="toggleCheckin(item)">I'm Leaving</button>
         </h4>
       </li>
     </ul>

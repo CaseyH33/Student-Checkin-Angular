@@ -5,4 +5,8 @@ studentCheckin.controller('StudentsCtrl', function StudentsCtrl($scope, Students
   $scope.checkin = function() {
     $scope.checkinStatus = true;
   };
+
+  $scope.checkout = function() {
+    $scope.checkinStatus = false;
+  };
 });
